@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niche Start — Your Full Business Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --coral: #D85A30;
+    --coral-light: #FAECE7;
+    --coral-mid: #F5C4B3;
+    --amber: #EF9F27;
+    --amber-light: #FAEEDA;
+    --cream: #FDF7F2;
+    --purple-dark: #3C3489;
+    --purple-mid: #534AB7;
+    --gray-light: #F1EFE8;
+    --gray-mid: #888780;
+    --gray-dark: #2C2C2A;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--purple-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .header {
+    width: 100%;
+    background: var(--coral);
+    padding: 18px 24px;
+    text-align: center;
+  }
+
+  .header-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .header-tagline {
+    font-size: 16px;
+    color: var(--coral-light);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 680px;
+    padding: 32px 24px 60px;
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  .progress-wrap { margin-bottom: 28px; }
+
+  .progress-label {
+    font-size: 14px;
+    color: var(--gray-mid);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .progress-track {
+    background: var(--coral-mid);
+    border-radius: 10px;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: var(--coral);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  .q-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 0.5px solid var(--coral-mid);
+    padding: 28px 28px 24px;
+    margin-bottom: 20px;
+  }
+
+  .q-eyebrow {
+    font-size: 14px;
+    color: var(--coral);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .q-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--purple-dark);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .q-body {
+    font-size: 17px;
+    color: #5F5E5A;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .q-body ul { margin: 8px 0 0 18px; }
+  .q-body li { margin-bottom: 4px; font-size: 16px; }
+
+  .q-prompt {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple-dark);
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid var(--coral-mid);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    color: var(--gray-dark);
+    background: var(--cream);
+    resize: vertical;
+    min-height: 120px;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+  }
+
+  textarea:focus { border-color: var(--coral); }
+  textarea::placeholder { color: #B4B2A9; }
+
+  .btn-primary {
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 28px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover { background: #C04E26; }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-mid);
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+    text-decoration: underline;
+  }
+
+  .btn-download {
+    background: var(--purple-dark);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 28px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    margin-top: 12px;
+  }
+
+  .btn-download:hover { background: var(--purple-mid); }
+
+  /* Welcome */
+  .welcome-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--coral-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+  }
+
+  .welcome-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--purple-dark);
+    text-align: center;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .welcome-body {
+    font-size: 18px;
+    color: #5F5E5A;
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .welcome-steps {
+    background: #fff;
+    border-radius: 14px;
+    border: 0.5px solid var(--coral-mid);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .step-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+  }
+
+  .step-row + .step-row { border-top: 0.5px solid var(--gray-light); }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-text {
+    font-size: 16px;
+    color: var(--purple-dark);
+    line-height: 1.5;
+  }
+
+  /* Review screen */
+  .review-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--purple-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .review-sub {
+    font-size: 17px;
+    color: #5F5E5A;
+    line-height: 1.7;
+  }
+
+  .review-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 0.5px solid var(--coral-mid);
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+
+  .review-label {
+    font-size: 13px;
+    color: var(--coral);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .review-card textarea {
+    min-height: 90px;
+    font-size: 16px;
+  }
+
+  /* Loading */
+  .loading-screen { text-align: center; padding: 60px 0; }
+
+  .spinner {
+    width: 52px;
+    height: 52px;
+    border: 3px solid var(--coral-light);
+    border-top-color: var(--coral);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 24px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--purple-dark);
+    margin-bottom: 10px;
+  }
+
+  .loading-sub {
+    font-size: 17px;
+    color: var(--gray-mid);
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .loading-steps {
+    margin: 28px auto 0;
+    max-width: 360px;
+    text-align: left;
+  }
+
+  .loading-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 15px;
+    color: var(--gray-mid);
+    border-top: 0.5px solid var(--gray-light);
+  }
+
+  .loading-step.done { color: var(--coral); }
+
+  .loading-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--coral-mid);
+    flex-shrink: 0;
+  }
+
+  .loading-step.done .loading-dot { background: var(--coral); }
+
+  /* Strategy output */
+  .strategy-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .strategy-celebrate {
+    font-size: 40px;
+    margin-bottom: 14px;
+  }
+
+  .strategy-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--purple-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .strategy-sub {
+    font-size: 17px;
+    color: #5F5E5A;
+    line-height: 1.7;
+  }
+
+  .strategy-content {
+    background: #fff;
+    border-radius: 16px;
+    border: 0.5px solid var(--coral-mid);
+    padding: 32px 32px;
+    margin-bottom: 24px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--gray-dark);
+  }
+
+  .strategy-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--coral);
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--coral-light);
+  }
+
+  .strategy-content h2:first-child { margin-top: 0; }
+
+  .strategy-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--purple-dark);
+    margin: 20px 0 8px;
+  }
+
+  .strategy-content p { margin-bottom: 14px; }
+
+  .strategy-content ul {
+    margin: 8px 0 14px 20px;
+  }
+
+  .strategy-content li { margin-bottom: 6px; }
+
+  .strategy-content strong { color: var(--purple-dark); }
+
+  .strategy-content .highlight {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    color: #633806;
+  }
+
+  .download-box {
+    background: var(--coral-light);
+    border: 1px solid var(--coral-mid);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .download-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--purple-dark);
+    margin-bottom: 8px;
+  }
+
+  .download-sub {
+    font-size: 16px;
+    color: #5F5E5A;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .error-box {
+    background: #FCEBEB;
+    border: 1px solid #F09595;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .error-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #A32D2D;
+    margin-bottom: 6px;
+  }
+
+  .error-sub { font-size: 15px; color: #791F1F; line-height: 1.6; }
+
+  @media (max-width: 480px) {
+    .container { padding: 24px 16px 48px; }
+    .q-card { padding: 22px 18px 20px; }
+    .q-title { font-size: 22px; }
+    .welcome-title { font-size: 26px; }
+    .strategy-content { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">Niche Start</div>
+  <div class="header-tagline">Your business starts with knowing yourself.</div>
+</div>
+
+<div class="container">
+
+  <!-- Welcome Screen -->
+  <div class="screen active" id="screen-welcome">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <div class="welcome-icon">✦</div>
+      <h1 class="welcome-title">You're one step away from your full business blueprint.</h1>
+      <p class="welcome-body">You've already done the hard part — now we go deeper. Three more questions and Claude will build your complete personalized strategy.</p>
+    </div>
+
+    <div class="welcome-steps">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Review your first three answers</strong> and make any changes</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Answer 3 deeper questions</strong> about your story, purpose, and voice</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Get your complete strategy</strong> — on screen and as a download</div>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="goTo('screen-review')">Let's build my strategy →</button>
+  </div>
+
+  <!-- Review Screen -->
+  <div class="screen" id="screen-review">
+    <div class="review-header">
+      <h2 class="review-title">Here's what you told us.</h2>
+      <p class="review-sub">Does this still feel right? Make any changes before we go deeper — the more honest your answers, the better your strategy.</p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-label">Your interests & passions</div>
+      <textarea id="review-q1" placeholder="What lights you up? Your interests and passions..."></textarea>
+    </div>
+
+    <div class="review-card">
+      <div class="review-label">Your skills & strengths</div>
+      <textarea id="review-q2" placeholder="What are you naturally good at?"></textarea>
+    </div>
+
+    <div class="review-card">
+      <div class="review-label">Your lifestyle & freedom goals</div>
+      <textarea id="review-q3" placeholder="What kind of life do you want your business to support?"></textarea>
+    </div>
+
+    <div style="margin-top: 8px;">
+      <button class="btn-primary" onclick="goTo('screen-q4')">These look good — keep going →</button>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="screen" id="screen-q4">
+    <div class="progress-wrap">
+      <div class="progress-label">Question 4 of 6</div>
+      <div class="progress-track"><div class="progress-fill" style="width: 66%"></div></div>
+    </div>
+    <div class="q-card">
+      <div class="q-eyebrow">Your life experience & story</div>
+      <h2 class="q-title">What experiences have shaped who you are today?</h2>
+      <div class="q-body">
+        Think about:
+        <ul>
+          <li>Challenges you've overcome</li>
+          <li>Life experiences that shaped you</li>
+          <li>Roles you've played (parent, professional, leader, caregiver, etc.)</li>
+          <li>Moments where you had to figure things out on your own</li>
+        </ul>
+      </div>
+      <div class="q-prompt">Share the experiences, challenges, or roles that have made you who you are.</div>
+      <textarea id="q4-answer" placeholder="e.g. I spent 15 years in corporate leadership, raised two kids as a working mom, and rebuilt my confidence after a career setback that taught me more than any success ever did..."></textarea>
+    </div>
+    <button class="btn-primary" onclick="saveAndNext('q4-answer', 'screen-q5')">Next →</button>
+    <button class="btn-secondary" onclick="goTo('screen-q5')">Skip this question</button>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="screen" id="screen-q5">
+    <div class="progress-wrap">
+      <div class="progress-label">Question 5 of 6</div>
+      <div class="progress-track"><div class="progress-fill" style="width: 83%"></div></div>
+    </div>
+    <div class="q-card">
+      <div class="q-eyebrow">Who you feel called to help</div>
+      <h2 class="q-title">Who do you feel most drawn to support or connect with?</h2>
+      <div class="q-body">
+        Think about:
+        <ul>
+          <li>People who remind you of a past version of yourself</li>
+          <li>Groups you naturally feel compassion toward</li>
+          <li>Who you enjoy helping or talking to most</li>
+          <li>Specific life stages (working parents, career changers, first-time entrepreneurs, etc.)</li>
+        </ul>
+      </div>
+      <div class="q-prompt">Describe who you feel most called to help or serve.</div>
+      <textarea id="q5-answer" placeholder="e.g. I feel most drawn to people who are stuck between where they are and where they want to be — especially those who have a lot going for them but can't quite figure out what their next move is..."></textarea>
+    </div>
+    <button class="btn-primary" onclick="saveAndNext('q5-answer', 'screen-q6')">Next →</button>
+    <button class="btn-secondary" onclick="goTo('screen-q6')">Skip this question</button>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="screen" id="screen-q6">
+    <div class="progress-wrap">
+      <div class="progress-label">Question 6 of 6</div>
+      <div class="progress-track"><div class="progress-fill" style="width: 99%"></div></div>
+    </div>
+    <div class="q-card">
+      <div class="q-eyebrow">Your content style & energy</div>
+      <h2 class="q-title">How do you want to show up and be known?</h2>
+      <div class="q-body">
+        Think about:
+        <ul>
+          <li>Your personality (calm, direct, motivating, nurturing, analytical, etc.)</li>
+          <li>How you like to communicate (teaching, storytelling, step-by-step, tough love, etc.)</li>
+          <li>The vibe you want your brand and content to have</li>
+          <li>How you want people to feel after hearing from you</li>
+        </ul>
+      </div>
+      <div class="q-prompt">Describe the energy and style you want your brand to have.</div>
+      <textarea id="q6-answer" placeholder="e.g. I want to be the friend who tells you the truth with love. Direct but warm. I want people to feel seen and capable after every piece of content I create — like they just got a shot of clarity and confidence..."></textarea>
+    </div>
+    <button class="btn-primary" onclick="generateStrategy()">Build my strategy →</button>
+    <button class="btn-secondary" onclick="generateStrategy()">Skip this question</button>
+  </div>
+
+  <!-- Loading -->
+  <div class="screen" id="screen-loading">
+    <div class="loading-screen">
+      <div class="spinner"></div>
+      <h2 class="loading-title">Building your strategy...</h2>
+      <p class="loading-sub">We're reading everything you shared and crafting a strategy that's truly yours. This takes about 30 seconds.</p>
+      <div class="loading-steps">
+        <div class="loading-step done" id="step-1">
+          <div class="loading-dot"></div>
+          Reading your answers
+        </div>
+        <div class="loading-step" id="step-2">
+          <div class="loading-dot"></div>
+          Identifying your niche fit
+        </div>
+        <div class="loading-step" id="step-3">
+          <div class="loading-dot"></div>
+          Building your audience profile
+        </div>
+        <div class="loading-step" id="step-4">
+          <div class="loading-dot"></div>
+          Creating your offer ideas
+        </div>
+        <div class="loading-step" id="step-5">
+          <div class="loading-dot"></div>
+          Writing your content plan
+        </div>
+        <div class="loading-step" id="step-6">
+          <div class="loading-dot"></div>
+          Finalizing your 30-day game plan
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategy Results -->
+  <div class="screen" id="screen-results">
+    <div class="strategy-header">
+      <div class="strategy-celebrate">✦</div>
+      <h2 class="strategy-title">Your personalized business blueprint is ready.</h2>
+      <p class="strategy-sub">This strategy was built around your answers — nobody else has one like it.</p>
+    </div>
+
+    <div class="strategy-content" id="strategy-output"></div>
+
+    <div class="download-box">
+      <h3 class="download-title">Save your blueprint.</h3>
+      <p class="download-sub">Download your strategy as a PDF so you always have it on hand.</p>
+      <button class="btn-primary" onclick="downloadPDF()">Download my blueprint as PDF →</button>
+      <button class="btn-download" onclick="window.print()">Print my blueprint</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ─── CONFIGURATION ───────────────────────────────────────────────
+  // IMPORTANT: Replace the placeholder below with your Anthropic API key
+  // before deploying. Never share your API key publicly.
+  const API_KEY = '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';
+  // ─────────────────────────────────────────────────────────────────
+
+  const answers = { q1: '', q2: '', q3: '', q4: '', q5: '', q6: '' };
+
+  function goTo(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function saveAndNext(answerId, nextScreen) {
+    const key = answerId.replace('-answer', '');
+    answers[key] = document.getElementById(answerId).value.trim();
+    goTo(nextScreen);
+  }
+
+  function loadFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('q1')) {
+      answers.q1 = decodeURIComponent(params.get('q1') || '');
+      answers.q2 = decodeURIComponent(params.get('q2') || '');
+      answers.q3 = decodeURIComponent(params.get('q3') || '');
+      document.getElementById('review-q1').value = answers.q1;
+      document.getElementById('review-q2').value = answers.q2;
+      document.getElementById('review-q3').value = answers.q3;
+    }
+  }
+
+  function saveReviewAnswers() {
+    answers.q1 = document.getElementById('review-q1').value.trim();
+    answers.q2 = document.getElementById('review-q2').value.trim();
+    answers.q3 = document.getElementById('review-q3').value.trim();
+  }
+
+  document.getElementById('screen-review').querySelector('.btn-primary').addEventListener('click', function() {
+    saveReviewAnswers();
+    goTo('screen-q4');
+  }, { once: false });
+
+  function animateLoadingSteps() {
+    const steps = ['step-2','step-3','step-4','step-5','step-6'];
+    steps.forEach((id, i) => {
+      setTimeout(() => {
+        document.getElementById(id).classList.add('done');
+      }, (i + 1) * 4000);
+    });
+  }
+
+  async function generateStrategy() {
+    answers.q6 = (document.getElementById('q6-answer').value || '').trim();
+    saveReviewAnswers();
+    goTo('screen-loading');
+    animateLoadingSteps();
+
+    const prompt = `You are a warm, insightful business strategy coach. Based on the person's answers below, create their complete personalized business blueprint. Write in a warm, direct, and encouraging tone — like a trusted friend who happens to be a brilliant strategist. Use their actual words and experiences to make this feel truly personal, not generic.
+
+THEIR ANSWERS:
+1. Interests & Passions: ${answers.q1 || 'Not provided'}
+2. Skills & Strengths: ${answers.q2 || 'Not provided'}
+3. Lifestyle & Freedom Goals: ${answers.q3 || 'Not provided'}
+4. Life Experience & Story: ${answers.q4 || 'Not provided'}
+5. Who They Feel Called to Help: ${answers.q5 || 'Not provided'}
+6. Content Style & Energy: ${answers.q6 || 'Not provided'}
+
+Create their blueprint with these exact sections, using HTML formatting (h2 for section headers, h3 for sub-headers, p for paragraphs, ul/li for lists). Use the class "highlight" on a div for any especially important callouts.
+
+Sections to include:
+1. A Note Just for You (2-3 warm sentences acknowledging what stands out about them specifically)
+2. Your #1 Niche (name it clearly, explain why it fits them using their actual answers)
+3. Also Worth Exploring (2 alternative niches with brief explanations)
+4. Who You're Built to Serve (a vivid, specific description of their ideal audience — make them feel real, include their top 3 pain points)
+5. Your Unique Edge (what makes them different from anyone else in this niche — be specific)
+6. What You Could Sell (3-5 specific digital product or offer ideas with suggested price points, recommend one to start with)
+7. Your Content Plan (best platforms for their niche, 8 specific content ideas written in their style, a simple weekly posting rhythm)
+8. Your 30-Day Game Plan (week by week actions — warm and encouraging, not corporate)
+9. Your First Step (one single action, called out clearly — make it feel doable and exciting)
+
+Be specific, warm, and genuinely helpful. Reference their actual answers throughout. This should feel like it was written just for them.`;
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 4000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const content = data.content[0].text;
+
+      document.getElementById('strategy-output').innerHTML = content;
+      goTo('screen-results');
+
+    } catch (error) {
+      console.error('Error:', error);
+      document.getElementById('screen-loading').querySelector('.loading-screen').innerHTML = `
+        <div class="error-box">
+          <div class="error-title">Something went wrong.</div>
+          <div class="error-sub">We weren't able to generate your strategy right now. Please try again in a moment — your answers are saved.<br><br>
+          <button class="btn-primary" style="margin-top:16px;" onclick="generateStrategy()">Try again →</button></div>
+        </div>
+      `;
+    }
+  }
+
+  function downloadPDF() {
+    const content = document.getElementById('strategy-output').innerHTML;
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>My Niche Start Business Blueprint</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        <style>
+          body { font-family: 'Lato', sans-serif; color: #2C2C2A; padding: 48px; max-width: 780px; margin: 0 auto; font-size: 16px; line-height: 1.8; }
+          .cover { text-align: center; padding: 60px 0 40px; border-bottom: 2px solid #F5C4B3; margin-bottom: 40px; }
+          .cover-brand { font-family: 'Playfair Display', serif; font-size: 36px; color: #D85A30; margin-bottom: 8px; }
+          .cover-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3C3489; margin-bottom: 8px; }
+          .cover-tagline { font-size: 16px; color: #888780; font-style: italic; }
+          h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: #D85A30; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #FAECE7; }
+          h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: #3C3489; margin: 20px 0 8px; }
+          p { margin-bottom: 14px; }
+          ul { margin: 8px 0 14px 20px; }
+          li { margin-bottom: 6px; }
+          .highlight { background: #FAEEDA; border-left: 3px solid #EF9F27; padding: 14px 18px; margin: 16px 0; }
+          strong { color: #3C3489; }
+          @media print { body { padding: 24px; } }
+        </style>
+      </head>
+      <body>
+        <div class="cover">
+          <div class="cover-brand">Niche Start</div>
+          <div class="cover-title">Your Personalized Business Blueprint</div>
+          <div class="cover-tagline">Your business starts with knowing yourself.</div>
+        </div>
+        ${content}
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+    setTimeout(() => printWindow.print(), 800);
+  }
+
+  window.addEventListener('load', loadFromURL);
+</script>
+</body>
+</html>
