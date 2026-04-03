@@ -7,46 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --coral: #D85A30;
-    --coral-light: #FAECE7;
-    --coral-mid: #F5C4B3;
-    --amber: #EF9F27;
-    --amber-light: #FAEEDA;
-    --cream: #FDF7F2;
-    --purple-dark: #3C3489;
-    --purple-mid: #534AB7;
-    --gray-light: #F1EFE8;
-    --gray-mid: #888780;
-    --gray-dark: #2C2C2A;
+    --coral: #D85A30; --coral-light: #FAECE7; --coral-mid: #F5C4B3;
+    --amber: #EF9F27; --amber-light: #FAEEDA; --cream: #FDF7F2;
+    --purple-dark: #3C3489; --purple-mid: #534AB7;
+    --gray-light: #F1EFE8; --gray-mid: #888780; --gray-dark: #2C2C2A;
   }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--cream);
-    color: var(--purple-dark);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-  }
-
+  body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--purple-dark); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 0; }
   .header { width: 100%; background: var(--coral); padding: 18px 24px; text-align: center; }
   .header-brand { font-family: 'Playfair Display', serif; font-size: 32px; color: #fff; letter-spacing: 0.5px; }
   .header-tagline { font-size: 16px; color: var(--coral-light); margin-top: 4px; font-style: italic; }
-
   .container { width: 100%; max-width: 620px; padding: 32px 24px 60px; }
   .screen { display: none; }
   .screen.active { display: block; }
-
   .progress-wrap { margin-bottom: 28px; }
   .progress-label { font-size: 14px; color: var(--gray-mid); margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
   .progress-track { background: var(--coral-mid); border-radius: 10px; height: 5px; width: 100%; overflow: hidden; }
   .progress-fill { background: var(--coral); height: 100%; border-radius: 10px; transition: width 0.4s ease; }
-
   .q-card { background: #fff; border-radius: 16px; border: 0.5px solid var(--coral-mid); padding: 28px 28px 24px; margin-bottom: 20px; }
   .q-eyebrow { font-size: 14px; color: var(--coral); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 10px; }
   .q-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--purple-dark); margin-bottom: 12px; line-height: 1.35; }
@@ -54,56 +31,51 @@
   .q-body ul { margin: 8px 0 0 18px; }
   .q-body li { margin-bottom: 4px; font-size: 16px; }
   .q-prompt { font-size: 16px; font-weight: 700; color: var(--purple-dark); margin-top: 16px; margin-bottom: 8px; }
-
   textarea { width: 100%; border: 1px solid var(--coral-mid); border-radius: 10px; padding: 14px 16px; font-family: 'Lato', sans-serif; font-size: 17px; color: var(--gray-dark); background: var(--cream); resize: vertical; min-height: 120px; outline: none; transition: border-color 0.2s; line-height: 1.6; }
   textarea:focus { border-color: var(--coral); }
   textarea::placeholder { color: #B4B2A9; }
-
   .btn-primary { background: var(--coral); color: #fff; border: none; border-radius: 10px; padding: 16px 28px; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; width: 100%; transition: background 0.2s, transform 0.1s; letter-spacing: 0.02em; }
   .btn-primary:hover { background: #C04E26; }
   .btn-primary:active { transform: scale(0.98); }
-
   .btn-secondary { background: transparent; color: var(--gray-mid); border: none; font-family: 'Lato', sans-serif; font-size: 15px; cursor: pointer; padding: 10px 0; width: 100%; text-align: center; margin-top: 6px; text-decoration: underline; }
-
   .welcome-icon { width: 64px; height: 64px; background: var(--coral-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
   .welcome-title { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--purple-dark); text-align: center; margin-bottom: 14px; line-height: 1.3; }
-  .welcome-body { font-size: 18px; color: #5F5E5A; text-align: center; line-height: 1.8; margin-bottom: 28px; }
+  .welcome-body { font-size: 18px; color: #5F5E5A; text-align: center; line-height: 1.8; margin-bottom: 16px; }
+  .welcome-note { font-size: 15px; color: var(--coral); text-align: center; font-style: italic; margin-bottom: 28px; line-height: 1.7; }
   .welcome-steps { background: #fff; border-radius: 14px; border: 0.5px solid var(--coral-mid); padding: 20px 24px; margin-bottom: 28px; }
   .step-row { display: flex; align-items: center; gap: 14px; padding: 8px 0; }
   .step-row + .step-row { border-top: 0.5px solid var(--gray-light); }
   .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--coral); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .step-text { font-size: 16px; color: var(--purple-dark); line-height: 1.5; }
-
+  .q-tip { font-size: 14px; color: var(--coral); font-style: italic; margin-bottom: 12px; line-height: 1.6; }
   .results-header { text-align: center; margin-bottom: 28px; }
   .results-celebrate { font-size: 36px; margin-bottom: 12px; }
   .results-title { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--purple-dark); margin-bottom: 10px; line-height: 1.3; }
   .results-sub { font-size: 17px; color: #5F5E5A; line-height: 1.7; }
-
-  .niche-card { background: #fff; border-radius: 14px; border: 0.5px solid var(--coral-mid); padding: 20px 22px; margin-bottom: 12px; }
+  .niche-card { background: #fff; border-radius: 14px; border: 0.5px solid var(--coral-mid); padding: 22px 24px; margin-bottom: 14px; }
   .niche-rank { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
   .niche-rank.top { color: var(--coral); }
   .niche-rank.second { color: var(--amber); }
   .niche-rank.third { color: var(--gray-mid); }
-  .niche-name { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--purple-dark); margin-bottom: 6px; }
-  .niche-why { font-size: 16px; color: #5F5E5A; line-height: 1.6; }
+  .niche-name { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--purple-dark); margin-bottom: 10px; }
+  .niche-why { font-size: 15px; color: #5F5E5A; line-height: 1.75; }
+  .niche-why p { margin-bottom: 10px; }
+  .niche-why p:last-child { margin-bottom: 0; }
   .niche-card.top-niche { border: 1.5px solid var(--coral); background: var(--coral-light); }
-
-  .upsell-box { background: var(--amber-light); border: 1px solid #FAC775; border-radius: 14px; padding: 22px; margin-top: 24px; text-align: center; }
+  .upsell-box { background: var(--amber-light); border: 1px solid #FAC775; border-radius: 14px; padding: 24px; margin-top: 24px; text-align: center; }
   .upsell-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #633806; margin-bottom: 10px; line-height: 1.4; }
   .upsell-body { font-size: 17px; color: #854F0B; line-height: 1.7; margin-bottom: 18px; }
   .upsell-list { text-align: left; margin: 0 0 18px 0; padding: 0; list-style: none; }
-  .upsell-list li { font-size: 16px; color: #854F0B; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+  .upsell-list li { font-size: 16px; color: #854F0B; padding: 5px 0; display: flex; align-items: center; gap: 8px; }
   .upsell-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
   .btn-upsell { background: var(--coral); color: #fff; border: none; border-radius: 10px; padding: 16px 28px; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; width: 100%; transition: background 0.2s; }
   .btn-upsell:hover { background: #C04E26; }
-  .skip-link { display: block; text-align: center; font-size: 15px; color: var(--gray-mid); text-decoration: underline; cursor: pointer; margin-top: 10px; }
-
+  .skip-link { display: block; text-align: center; font-size: 15px; color: var(--gray-mid); text-decoration: underline; cursor: pointer; margin-top: 12px; }
   .loading-screen { text-align: center; padding: 40px 0; }
   .spinner { width: 44px; height: 44px; border: 3px solid var(--coral-light); border-top-color: var(--coral); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .loading-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--purple-dark); margin-bottom: 8px; }
   .loading-sub { font-size: 17px; color: var(--gray-mid); font-style: italic; }
-
   @media (max-width: 480px) {
     .container { padding: 24px 16px 48px; }
     .q-card { padding: 22px 18px 20px; }
@@ -121,12 +93,12 @@
 
 <div class="container">
 
-  <!-- Welcome Screen -->
   <div class="screen active" id="screen-welcome">
     <div style="text-align:center; margin-bottom: 32px;">
-      <div class="welcome-icon">✦</div>
+      <div class="welcome-icon">&#10022;</div>
       <h1 class="welcome-title">Ready to find the business idea that's already inside you?</h1>
       <p class="welcome-body">In just 3 questions, we'll uncover your top niche areas — personalized to who you actually are, not who you think you should be.</p>
+      <p class="welcome-note">The more honest and descriptive your answers, the more personalized your results will be. Write like you're talking to a trusted friend — don't overthink it.</p>
     </div>
     <div class="welcome-steps">
       <div class="step-row">
@@ -135,18 +107,17 @@
       </div>
       <div class="step-row">
         <div class="step-num">2</div>
-        <div class="step-text"><strong>Get your top 2–3 niche areas</strong> matched specifically to you</div>
+        <div class="step-text"><strong>Get your top 2-3 niche areas</strong> matched specifically to you</div>
       </div>
       <div class="step-row">
         <div class="step-num">3</div>
         <div class="step-text"><strong>Walk away with clarity</strong> on where your business should begin</div>
       </div>
     </div>
-    <button class="btn-primary" onclick="goTo('screen-q1')">Let's find my niche →</button>
+    <button class="btn-primary" onclick="goTo('screen-q1')">Let's find my niche &rarr;</button>
     <p style="text-align:center; font-size:15px; color:var(--gray-mid); margin-top:14px; font-style:italic;">Free. No credit card. Takes about 5 minutes.</p>
   </div>
 
-  <!-- Question 1 -->
   <div class="screen" id="screen-q1">
     <div class="progress-wrap">
       <div class="progress-label">Question 1 of 3</div>
@@ -164,14 +135,14 @@
           <li>Activities that make you feel like yourself</li>
         </ul>
       </div>
-      <div class="q-prompt">List 3–5 interests or passions that light you up.</div>
-      <textarea id="q1-answer" placeholder="e.g. I love helping people feel confident, I'm obsessed with productivity systems, I can talk about nutrition for hours..."></textarea>
+      <div class="q-tip">Take your time here — the more detail you share, the better your results.</div>
+      <div class="q-prompt">List 3-5 interests or passions that light you up.</div>
+      <textarea id="q1-answer" placeholder="e.g. I love helping people feel confident, I'm obsessed with productivity systems, I can talk about nutrition for hours, I've always been drawn to personal finance and helping people get out of debt..."></textarea>
     </div>
-    <button class="btn-primary" onclick="nextQ('q1-answer', 'screen-q2')">Next →</button>
+    <button class="btn-primary" onclick="nextQ('q1-answer', 'screen-q2')">Next &rarr;</button>
     <button class="btn-secondary" onclick="goTo('screen-q2')">Skip this question</button>
   </div>
 
-  <!-- Question 2 -->
   <div class="screen" id="screen-q2">
     <div class="progress-wrap">
       <div class="progress-label">Question 2 of 3</div>
@@ -189,14 +160,14 @@
           <li>Personal traits (organized, creative, a great listener, etc.)</li>
         </ul>
       </div>
-      <div class="q-prompt">List 3–5 skills or strengths you feel confident in.</div>
-      <textarea id="q2-answer" placeholder="e.g. I'm great at breaking down complex ideas simply, people always come to me for career advice, I'm really good at organizing and planning..."></textarea>
+      <div class="q-tip">Don't be modest here — the skills that feel obvious to you are often gold to someone else.</div>
+      <div class="q-prompt">List 3-5 skills or strengths you feel confident in.</div>
+      <textarea id="q2-answer" placeholder="e.g. I'm great at breaking down complex ideas simply, people always come to me for career advice, I'm really good at organizing and planning, I have a talent for seeing patterns others miss..."></textarea>
     </div>
-    <button class="btn-primary" onclick="nextQ('q2-answer', 'screen-q3')">Next →</button>
+    <button class="btn-primary" onclick="nextQ('q2-answer', 'screen-q3')">Next &rarr;</button>
     <button class="btn-secondary" onclick="goTo('screen-q3')">Skip this question</button>
   </div>
 
-  <!-- Question 3 -->
   <div class="screen" id="screen-q3">
     <div class="progress-wrap">
       <div class="progress-label">Question 3 of 3</div>
@@ -214,14 +185,14 @@
           <li>Income goals (extra cash vs full-time income)</li>
         </ul>
       </div>
+      <div class="q-tip">Be specific — your lifestyle goals help us match you to a niche that actually fits your real life, not just your dreams.</div>
       <div class="q-prompt">Describe your ideal lifestyle in a sentence or two.</div>
-      <textarea id="q3-answer" placeholder="e.g. I want flexible hours, to work from home, and make an extra $2–5K a month without giving up my full-time job..."></textarea>
+      <textarea id="q3-answer" placeholder="e.g. I want flexible hours, to work from home, and make an extra $2-5K a month without giving up my full-time job. Eventually I'd love for this to replace my salary so I can work for myself full time..."></textarea>
     </div>
-    <button class="btn-primary" onclick="submitAnswers()">Show me my niches →</button>
+    <button class="btn-primary" onclick="submitAnswers()">Show me my niches &rarr;</button>
     <button class="btn-secondary" onclick="submitAnswers()">Skip this question</button>
   </div>
 
-  <!-- Loading -->
   <div class="screen" id="screen-loading">
     <div class="loading-screen">
       <div class="spinner"></div>
@@ -230,10 +201,9 @@
     </div>
   </div>
 
-  <!-- Results -->
   <div class="screen" id="screen-results">
     <div class="results-header">
-      <div class="results-celebrate">✦</div>
+      <div class="results-celebrate">&#10022;</div>
       <h2 class="results-title">Here are your top niche matches, friend.</h2>
       <p class="results-sub">These business directions are matched to who you actually are.</p>
     </div>
@@ -245,12 +215,15 @@
       <p class="upsell-body">Want to know exactly what to sell, who to sell it to, how to market it — and get a full 30-day game plan as a beautiful PDF?</p>
       <ul class="upsell-list">
         <li>Your #1 niche and why it's made for you</li>
-        <li>Your ideal audience and their pain points</li>
-        <li>What to sell and at what price</li>
-        <li>Your personalized content & social media plan</li>
-        <li>Your 30-day business game plan</li>
+        <li>Your ideal audience and their exact pain points</li>
+        <li>Your unique edge — what makes you different</li>
+        <li>5 specific products you could sell with price points</li>
+        <li>30 days of personalized content ideas</li>
+        <li>8 marketing strategies tailored to your niche</li>
+        <li>Your complete 30-day business game plan</li>
+        <li>A full summary with your top 10 action steps</li>
       </ul>
-      <button class="btn-upsell" onclick="goToTier2()">Get my full strategy — $97 →</button>
+      <button class="btn-upsell" onclick="goToTier2()">Get my full strategy — $97 &rarr;</button>
       <span class="skip-link">No thanks, my free results are enough for now</span>
     </div>
   </div>
@@ -258,11 +231,11 @@
 </div>
 
 <script>
-  const answers = { q1: '', q2: '', q3: '' };
+  var answers = { q1: '', q2: '', q3: '' };
 
   function goToTier2() {
-    const tier2URL = 'https://https://niche-quiz-page--cely458.replit.app';
-    const params = new URLSearchParams({
+    var tier2URL = 'https://niche-quiz-page--cely458.replit.app';
+    var params = new URLSearchParams({
       q1: answers.q1 || '',
       q2: answers.q2 || '',
       q3: answers.q3 || ''
@@ -271,87 +244,123 @@
   }
 
   function goTo(screenId) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    var screens = document.querySelectorAll('.screen');
+    for (var i = 0; i < screens.length; i++) {
+      screens[i].classList.remove('active');
+    }
     document.getElementById(screenId).classList.add('active');
     window.scrollTo(0, 0);
   }
 
   function nextQ(answerId, nextScreen) {
-    answers[answerId.replace('-answer', '')] = document.getElementById(answerId).value.trim();
+    var key = answerId.replace('-answer', '');
+    answers[key] = document.getElementById(answerId).value.trim();
     goTo(nextScreen);
   }
 
   function submitAnswers() {
-    answers.q3 = (document.getElementById('q3-answer').value || '').trim();
+    var q3el = document.getElementById('q3-answer');
+    answers.q3 = q3el ? q3el.value.trim() : '';
     goTo('screen-loading');
-    setTimeout(() => generateResults(), 2200);
+    setTimeout(generateResults, 2200);
   }
 
   function generateResults() {
-    const combined = (answers.q1 + ' ' + answers.q2 + ' ' + answers.q3).toLowerCase();
+    var combined = (answers.q1 + ' ' + answers.q2 + ' ' + answers.q3).toLowerCase();
 
-    const nicheMap = [
-      { keywords: ['coach','coaching','mindset','confidence','motivation','mental','habit','goal','personal development','self'], name: 'Mindset & Personal Development Coaching', why: 'const nicheMap = [   { keywords: ['coach','coaching','mindset','confidence','motivation','mental','habit','goal','personal development','self'], name: 'Mindset & Personal Development Coaching', why: 'You have a natural drive to help others grow — and your own journey gives you credibility that no course can teach. People who work in this niche don\'t just share information, they transform lives. The fact that you light up around these topics means your energy will come through in everything you create, and that\'s what builds loyal audiences fast.
-
-The mindset and personal development space is one of the most evergreen niches online — people will always need help becoming better versions of themselves. With your combination of lived experience and natural coaching instincts, you\'re not just another voice in the crowd. You\'re someone who has actually walked the path. That\'s your unfair advantage, and it\'s exactly what your future audience is looking for.' },   { keywords: ['fitness','health','wellness','workout','nutrition','food','diet','body','exercise'], name: 'Health, Wellness & Fitness', why: 'Your passion for physical and mental wellbeing is something others desperately need guidance on — and they\'re willing to pay for it. This niche is powerful because it touches every area of someone\'s life. When people feel better physically, everything else improves too. That\'s why health and wellness content consistently outperforms almost every other category online.
-
-What makes you stand out here isn\'t just knowledge — it\'s your personal relationship with this topic. Your story, your struggles, and your breakthroughs are the very thing that will make someone stop scrolling and say "this person gets me." In a niche full of generic advice, your authentic experience is worth more than any certification.' },   { keywords: ['business','entrepreneur','side hustle','money','income','finance','invest','passive','marketing','digital product','sell','brand'], name: 'Online Business & Entrepreneurship', why: 'You understand the hustle of building something from scratch — and there are thousands of beginners who need exactly your perspective. The online business space rewards people who are just a few steps ahead of their audience, not decades ahead. That means your real-world experience navigating the messy middle of entrepreneurship is incredibly valuable right now.
-
-What\'s more, this niche has one of the highest willingness-to-pay of any category online. People invest in their business education because they see it as an investment, not an expense. Your ability to speak from experience, break down complex concepts, and show people a realistic path forward puts you in a powerful position to build real income doing something you genuinely care about.' },   { keywords: ['write','writing','blog','content','story','storytelling','book','journal','creative'], name: 'Content Creation & Storytelling', why: 'Your ability to communicate ideas clearly and compellingly is a rare skill that translates beautifully into digital products, courses, and coaching. In a world drowning in content, people who can tell a story that makes someone feel something are worth their weight in gold. That\'s you — and there\'s a huge audience of aspiring creators who want to learn exactly what you know.
-
-Storytelling is the backbone of every successful brand online. Whether someone wants to grow a blog, write a book, build a social media presence, or launch a business — they need to learn how to tell their story first. You can be the person who teaches them that. And the beautiful thing about this niche is that your content itself becomes proof of your expertise every single time you show up.' },   { keywords: ['parent','mom','family','kids','children','home','organize','household','balance'], name: 'Family, Parenting & Home Life', why: 'The systems and wisdom you\'ve built managing family life are exactly what overwhelmed parents are searching for. Parenting is one of the most universal human experiences, and yet most people feel completely alone in it. When you share what\'s worked for you — the routines, the boundaries, the mindset shifts — you\'re giving people something they can\'t easily find anywhere else: real, lived, honest guidance.
-
-This niche is deeply loyal. When someone finds a creator who speaks their language and actually understands their daily reality, they follow them everywhere. They buy their products, share their content, and come back again and again. Your authenticity and real-world experience as a parent or family manager isn\'t just relatable — it\'s the foundation of a business people will trust completely.' },   { keywords: ['career','job','corporate','professional','leadership','executive','team','manage','interview','resume'], name: 'Career Growth & Professional Development', why: 'Your professional experience and leadership perspective are assets others will pay to learn from. There are millions of people stuck in jobs they\'ve outgrown, desperate for someone who understands corporate life from the inside to help them navigate their next move. You\'ve earned insights through real experience that no textbook can replicate — and that\'s exactly what makes your guidance so valuable.
-
-The career development niche is booming because the workplace is changing faster than ever. People need help negotiating salaries, getting promotions, switching industries, building their personal brand at work, and finding the confidence to go after what they really want. You have the experience and the perspective to be the trusted guide they\'ve been looking for. That\'s not a small thing — that\'s a business.' },   { keywords: ['teach','education','tutor','learn','student','course','skill','training'], name: 'Education & Skill-Based Coaching', why: 'You have a natural gift for breaking things down and helping others understand — and that\'s the foundation of a thriving digital product business. The ability to take something complex and make it accessible is genuinely rare. Most experts struggle to remember what it felt like not to know what they know. You don\'t have that problem, and that empathy is your superpower.
-
-Online education is one of the fastest growing industries in the world right now. People are hungry to learn new skills and they want to learn from real humans who care about their progress, not faceless institutions. Your teaching instincts, combined with your subject matter expertise, put you in a position to build courses, workshops, and coaching programs that genuinely change people\'s lives — and build you a sustainable income at the same time.' },   { keywords: ['design','art','creative','visual','photo','video','music','craft','diy'], name: 'Creative Arts & Design', why: 'Your creative eye and hands-on skills are highly monetizable — especially in the digital products and templates space. Creatives often underestimate how much their skills are worth to others who wish they had them. The ability to make something beautiful, functional, or expressive is something people will consistently pay for, whether that\'s templates, tutorials, custom work, or courses that teach your craft.
-
-What\'s exciting about this niche right now is that the tools have never been more accessible, which means more people than ever are trying to learn creative skills — and they need teachers and guides like you. Your unique aesthetic, your process, and your creative perspective are things nobody else can replicate. That distinctiveness is the very foundation of a brand that stands out.' },   { keywords: ['travel','adventure','explore','culture','language','international'], name: 'Travel & Lifestyle', why: 'Your experiences and love for discovery translate into incredibly engaging content that builds loyal audiences fast. Travel creators have some of the most passionate communities online because they tap into something every human craves — the desire to experience more of the world. When you share your adventures, your lessons, and your perspective, you give people a window into possibilities they haven\'t dared to imagine yet.
-
-Beyond the inspiration factor, travel and lifestyle is a niche with enormous monetization potential. From digital guides and itineraries to courses on how to travel affordably, work remotely, or experience different cultures — the products you can create are limited only by your imagination. And because your content is rooted in real experiences, it carries an authenticity that no amount of polished marketing can manufacture.' },   { keywords: ['relationship','love','dating','communication','connection','community','social'], name: 'Relationships & Communication', why: 'The ability to help people connect better — with themselves and with others — is one of the most deeply sought-after skills online. Loneliness and disconnection are at an all-time high, and people are actively searching for guidance on how to build better relationships, communicate more effectively, and find their community. Your natural empathy and understanding of human connection makes you perfectly positioned to serve this need.
-
-What makes this niche particularly powerful is that it touches every area of someone\'s life. Better relationships mean better mental health, better work performance, better family dynamics, better everything. When you help someone in this space, the ripple effect is enormous — and they never forget the person who helped them. That kind of impact builds the most loyal, grateful audience you can imagine.' }, ]; — and your own journey gives you credibility that no course can teach.' },
-      { keywords: ['fitness','health','wellness','workout','nutrition','food','diet','body','exercise'], name: 'Health, Wellness & Fitness', why: 'Your passion for physical and mental wellbeing is something others desperately need guidance on.' },
-      { keywords: ['business','entrepreneur','side hustle','money','income','finance','invest','passive','marketing','digital product','sell','brand'], name: 'Online Business & Entrepreneurship', why: 'You understand the hustle of building something from scratch — and there are thousands of beginners who need exactly your perspective.' },
-      { keywords: ['write','writing','blog','content','story','storytelling','book','journal','creative'], name: 'Content Creation & Storytelling', why: 'Your ability to communicate ideas clearly and compellingly is a rare skill that translates beautifully into digital products and courses.' },
-      { keywords: ['parent','mom','family','kids','children','home','organize','household','balance'], name: 'Family, Parenting & Home Life', why: 'The systems and wisdom you\'ve built managing family life are exactly what overwhelmed parents are searching for.' },
-      { keywords: ['career','job','corporate','professional','leadership','executive','team','manage','interview','resume'], name: 'Career Growth & Professional Development', why: 'Your professional experience and leadership perspective are assets others will pay to learn from.' },
-      { keywords: ['teach','education','tutor','learn','student','course','skill','training'], name: 'Education & Skill-Based Coaching', why: 'You have a natural gift for breaking things down and helping others understand — that\'s the foundation of a thriving digital product business.' },
-      { keywords: ['design','art','creative','visual','photo','video','music','craft','diy'], name: 'Creative Arts & Design', why: 'Your creative eye and hands-on skills are highly monetizable — especially in the digital products and templates space.' },
-      { keywords: ['travel','adventure','explore','culture','language','international'], name: 'Travel & Lifestyle', why: 'Your experiences and love for discovery translate into incredibly engaging content that builds loyal audiences fast.' },
-      { keywords: ['relationship','love','dating','communication','connection','community','social'], name: 'Relationships & Communication', why: 'The ability to help people connect better — with themselves and others — is one of the most deeply sought-after niches online.' },
+    var nicheMap = [
+      {
+        keywords: ['coach','coaching','mindset','confidence','motivation','mental','habit','goal','personal development','self'],
+        name: 'Mindset & Personal Development Coaching',
+        p1: 'You have a natural drive to help others grow — and your own journey gives you credibility that no course can teach. People who work in this niche do not just share information, they transform lives. The fact that you light up around these topics means your energy will come through in everything you create, and that is what builds loyal audiences fast.',
+        p2: 'The mindset and personal development space is one of the most evergreen niches online — people will always need help becoming better versions of themselves. With your combination of lived experience and natural coaching instincts, you are not just another voice in the crowd. You are someone who has actually walked the path. That is your unfair advantage, and it is exactly what your future audience is looking for.'
+      },
+      {
+        keywords: ['fitness','health','wellness','workout','nutrition','food','diet','body','exercise'],
+        name: 'Health, Wellness & Fitness',
+        p1: 'Your passion for physical and mental wellbeing is something others desperately need guidance on — and they are willing to pay for it. This niche is powerful because it touches every area of someone\'s life. When people feel better physically, everything else improves too. That is why health and wellness content consistently outperforms almost every other category online.',
+        p2: 'What makes you stand out here is not just knowledge — it is your personal relationship with this topic. Your story, your struggles, and your breakthroughs are the very thing that will make someone stop scrolling and say this person gets me. In a niche full of generic advice, your authentic experience is worth more than any certification.'
+      },
+      {
+        keywords: ['business','entrepreneur','side hustle','money','income','finance','invest','passive','marketing','digital product','sell','brand'],
+        name: 'Online Business & Entrepreneurship',
+        p1: 'You understand the hustle of building something from scratch — and there are thousands of beginners who need exactly your perspective. The online business space rewards people who are just a few steps ahead of their audience, not decades ahead. That means your real-world experience navigating the messy middle of entrepreneurship is incredibly valuable right now.',
+        p2: 'What is more, this niche has one of the highest willingness-to-pay of any category online. People invest in their business education because they see it as an investment, not an expense. Your ability to speak from experience, break down complex concepts, and show people a realistic path forward puts you in a powerful position to build real income doing something you genuinely care about.'
+      },
+      {
+        keywords: ['write','writing','blog','content','story','storytelling','book','journal','creative'],
+        name: 'Content Creation & Storytelling',
+        p1: 'Your ability to communicate ideas clearly and compellingly is a rare skill that translates beautifully into digital products, courses, and coaching. In a world drowning in content, people who can tell a story that makes someone feel something are worth their weight in gold. That is you — and there is a huge audience of aspiring creators who want to learn exactly what you know.',
+        p2: 'Storytelling is the backbone of every successful brand online. Whether someone wants to grow a blog, write a book, build a social media presence, or launch a business — they need to learn how to tell their story first. You can be the person who teaches them that. And the beautiful thing about this niche is that your content itself becomes proof of your expertise every single time you show up.'
+      },
+      {
+        keywords: ['parent','mom','family','kids','children','home','organize','household','balance'],
+        name: 'Family, Parenting & Home Life',
+        p1: 'The systems and wisdom you have built managing family life are exactly what overwhelmed parents are searching for. Parenting is one of the most universal human experiences, and yet most people feel completely alone in it. When you share what has worked for you — the routines, the boundaries, the mindset shifts — you give people something they cannot easily find anywhere else: real, lived, honest guidance.',
+        p2: 'This niche is deeply loyal. When someone finds a creator who speaks their language and actually understands their daily reality, they follow them everywhere. They buy their products, share their content, and come back again and again. Your authenticity and real-world experience as a parent or family manager is not just relatable — it is the foundation of a business people will trust completely.'
+      },
+      {
+        keywords: ['career','job','corporate','professional','leadership','executive','team','manage','interview','resume'],
+        name: 'Career Growth & Professional Development',
+        p1: 'Your professional experience and leadership perspective are assets others will pay to learn from. There are millions of people stuck in jobs they have outgrown, desperate for someone who understands corporate life from the inside to help them navigate their next move. You have earned insights through real experience that no textbook can replicate — and that is exactly what makes your guidance so valuable.',
+        p2: 'The career development niche is booming because the workplace is changing faster than ever. People need help negotiating salaries, getting promotions, switching industries, building their personal brand at work, and finding the confidence to go after what they really want. You have the experience and the perspective to be the trusted guide they have been looking for. That is not a small thing — that is a business.'
+      },
+      {
+        keywords: ['teach','education','tutor','learn','student','course','skill','training'],
+        name: 'Education & Skill-Based Coaching',
+        p1: 'You have a natural gift for breaking things down and helping others understand — and that is the foundation of a thriving digital product business. The ability to take something complex and make it accessible is genuinely rare. Most experts struggle to remember what it felt like not to know what they know. You do not have that problem, and that empathy is your superpower.',
+        p2: 'Online education is one of the fastest growing industries in the world right now. People are hungry to learn new skills and they want to learn from real humans who care about their progress, not faceless institutions. Your teaching instincts combined with your subject matter expertise put you in a position to build courses, workshops, and coaching programs that genuinely change lives — and build you a sustainable income at the same time.'
+      },
+      {
+        keywords: ['design','art','creative','visual','photo','video','music','craft','diy'],
+        name: 'Creative Arts & Design',
+        p1: 'Your creative eye and hands-on skills are highly monetizable — especially in the digital products and templates space. Creatives often underestimate how much their skills are worth to others who wish they had them. The ability to make something beautiful, functional, or expressive is something people will consistently pay for, whether that is templates, tutorials, custom work, or courses that teach your craft.',
+        p2: 'What is exciting about this niche right now is that the tools have never been more accessible, which means more people than ever are trying to learn creative skills — and they need teachers and guides like you. Your unique aesthetic, your process, and your creative perspective are things nobody else can replicate. That distinctiveness is the very foundation of a brand that stands out.'
+      },
+      {
+        keywords: ['travel','adventure','explore','culture','language','international'],
+        name: 'Travel & Lifestyle',
+        p1: 'Your experiences and love for discovery translate into incredibly engaging content that builds loyal audiences fast. Travel creators have some of the most passionate communities online because they tap into something every human craves — the desire to experience more of the world. When you share your adventures, your lessons, and your perspective, you give people a window into possibilities they have not dared to imagine yet.',
+        p2: 'Beyond the inspiration factor, travel and lifestyle is a niche with enormous monetization potential. From digital guides and itineraries to courses on how to travel affordably, work remotely, or experience different cultures — the products you can create are limited only by your imagination. And because your content is rooted in real experiences, it carries an authenticity that no amount of polished marketing can manufacture.'
+      },
+      {
+        keywords: ['relationship','love','dating','communication','connection','community','social'],
+        name: 'Relationships & Communication',
+        p1: 'The ability to help people connect better — with themselves and with others — is one of the most deeply sought-after skills online. Loneliness and disconnection are at an all-time high, and people are actively searching for guidance on how to build better relationships, communicate more effectively, and find their community. Your natural empathy and understanding of human connection makes you perfectly positioned to serve this need.',
+        p2: 'What makes this niche particularly powerful is that it touches every area of someone\'s life. Better relationships mean better mental health, better work performance, better family dynamics, better everything. When you help someone in this space, the ripple effect is enormous — and they never forget the person who helped them. That kind of impact builds the most loyal, grateful audience you can imagine.'
+      }
     ];
 
-    let scored = nicheMap.map(n => {
-      let score = 0;
-      n.keywords.forEach(k => { if (combined.includes(k)) score++; });
-      return { ...n, score };
+    var scored = nicheMap.map(function(n) {
+      var score = 0;
+      n.keywords.forEach(function(k) { if (combined.indexOf(k) !== -1) score++; });
+      return { name: n.name, p1: n.p1, p2: n.p2, score: score };
     });
 
-    scored.sort((a, b) => b.score - a.score);
-    let top = scored.slice(0, 3);
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 3);
 
     if (top[0].score === 0) {
       top = [
-        { name: 'Personal Development & Coaching', why: 'Based on your answers, helping others grow and develop is a strong fit for who you are and what you value.' },
-        { name: 'Online Business & Digital Products', why: 'Your drive to build something of your own and create income on your terms points strongly toward the digital business space.' },
-        { name: 'Lifestyle & Mindset Content', why: 'Your passion for living intentionally and sharing what you know makes content creation a natural starting point.' }
+        { name: 'Personal Development & Coaching', p1: 'Based on your answers, helping others grow and develop is a strong fit for who you are and what you value. You have a natural pull toward growth — your own and others\' — and that instinct is the foundation of one of the most powerful niches online. People in this space do not just build businesses, they build movements.', p2: 'The personal development niche rewards authenticity above everything else. Your lived experience, your perspective, and your genuine desire to help others are worth far more than any credential. There is an audience out there right now who needs to hear exactly what you have to say — they just have not found you yet.' },
+        { name: 'Online Business & Digital Products', p1: 'Your drive to build something of your own and create income on your terms points strongly toward the digital business space. This niche is thriving because the barriers to entry have never been lower — all you need is knowledge someone else wants and the willingness to share it. You have both.', p2: 'What separates successful digital product creators from the rest is not perfection — it is consistency and genuine value. You have the mindset and the drive to show up consistently, and that is the real competitive advantage in this space. The people who win here are the ones who keep going when others quit.' },
+        { name: 'Lifestyle & Mindset Content', p1: 'Your passion for living intentionally and sharing what you know makes content creation a natural starting point. Lifestyle content is powerful because it is personal — and personal is what builds trust online faster than anything else. When you let people into your real life and real thinking, they feel like they know you. And people buy from people they feel like they know.', p2: 'The lifestyle niche is one of the most flexible in terms of monetization. Once you build an audience around your perspective and values, you can sell digital products, courses, coaching, or brand partnerships — all built on the foundation of who you genuinely are. Your authenticity is not just a nice-to-have in this space. It is everything.' }
       ];
     }
 
-    const container = document.getElementById('niches-container');
-    const ranks = ['top', 'second', 'third'];
-    const rankLabels = ['Your #1 niche match', 'Also a strong fit', 'Worth exploring'];
+    var container = document.getElementById('niches-container');
+    var ranks = ['top', 'second', 'third'];
+    var rankLabels = ['Your #1 niche match', 'Also a strong fit', 'Worth exploring'];
 
-    container.innerHTML = top.map((n, i) => `
-      <div class="niche-card ${i === 0 ? 'top-niche' : ''}">
-        <div class="niche-rank ${ranks[i]}">${rankLabels[i]}</div>
-        <div class="niche-name">${n.name}</div>
-        <div class="niche-why">${n.why}</div>
-      </div>
-    `).join('');
-
+    var html = '';
+    for (var i = 0; i < top.length; i++) {
+      html += '<div class="niche-card ' + (i === 0 ? 'top-niche' : '') + '">';
+      html += '<div class="niche-rank ' + ranks[i] + '">' + rankLabels[i] + '</div>';
+      html += '<div class="niche-name">' + top[i].name + '</div>';
+      html += '<div class="niche-why"><p>' + top[i].p1 + '</p><p>' + top[i].p2 + '</p></div>';
+      html += '</div>';
+    }
+    container.innerHTML = html;
     goTo('screen-results');
   }
 </script>
